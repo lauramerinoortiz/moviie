@@ -24,22 +24,22 @@ export class VistaNueva extends Vista {
           this.imagen=$('#imagen')
 
           this.borrar=this.div.find('button')[0]
-          this.borrar.click(this.pulsarBorrar.bind(this)) 
+          this.borrar.onclick=this.pulsarBorrar.bind(this)
 
           this.aceptar=this.div.find('button')[1]
-          this.aceptar.click(this.pulsarAceptar.bind(this)) 
+          this.aceptar.onclick=this.pulsarAceptar.bind(this)
 
           this.netflix=$('#netflix')
-          this.netflix.click(this.anadirPlataforma.bind(this,'Netflix'))
+          this.netflix.onclick=this.anadirPlataforma.bind(this,'Netflix')
 
           this.hbo=$('#hbo')
-          this.hbo.click(this.anadirPlataforma.bind(this, 'Hbo'))
+          this.hbo.onclick=this.anadirPlataforma.bind(this, 'Hbo')
 
           this.disney=$('#disney')
-          this.disney.click(this.anadirPlataforma.bind(this, 'Disney'))
+          this.disney.onclick=this.anadirPlataforma.bind(this, 'Disney')
 
           this.amazon=$('#amazon')
-          this.amazon.click(this.anadirPlataforma.bind(this,'Amazon'))
+          this.amazon.onclick=this.anadirPlataforma.bind(this,'Amazon')
 
           this.plataformas=new Set()
 	}
@@ -48,11 +48,11 @@ export class VistaNueva extends Vista {
       * Método para cuando damos al boton borrar que limpia el formulario
       */
      pulsarBorrar() {
-          this.nombre.value=''
-          this.descripcion.value=''
-          this.fecha.value=''
-          this.duracion.value=''
-          this.imagen.value=''
+          this.nombre.text=''
+          this.descripcion.text=''
+          this.fecha.text=''
+          this.duracion.text=''
+          this.imagen.text=''
           $('select')[0]='Drama'
   
           
@@ -61,65 +61,65 @@ export class VistaNueva extends Vista {
           this.disney.checked=false
           this.amazon.checked=false
           this.plataformas.clear()
-          let error=document.getElementById('camposrellenos')
-          error.style.display='none'
-          let insertado=document.getElementById('insertado')
-          insertado.style.display='none'
-          this.nombre.style.borderColor="#808080"
-          this.descripcion.style.borderColor="#808080"
-          this.fecha.style.borderColor="#808080"
-          this.duracion.style.borderColor="#808080"
+          let error=$('#camposrellenos')
+          error.css('display','none')
+          let insertado=$('#insertado')
+          insertado.css('display','none')
+          this.nombre.css('borderColor',"#808080")
+          this.descripcion.css('borderColor',"#808080")
+          this.fecha.css('borderColor',"#808080")
+          this.duracion.css('borderColor',"#808080")
      }
 
      /**
       * Método para cuando damos al boton aceptar
       */
      pulsarAceptar() {
-          let error=document.getElementById('camposrellenos')
-          error.style.display='none'
-          let insertado=document.getElementById('insertado')
-          insertado.style.display='none'
-          this.nombre.style.borderColor="#808080"
-          this.descripcion.style.borderColor="#808080"
-          this.fecha.style.borderColor="#808080"
-          this.duracion.style.borderColor="#808080"
+          let error=$('#camposrellenos')
+          error.css('display','none')
+          let insertado=$('#insertado')
+          insertado.css('display','none')
+          this.nombre.css('borderColor',"#808080")
+          this.descripcion.css('borderColor',"#808080")
+          this.fecha.css('borderColor',"#808080")
+          this.duracion.css('borderColor',"#808080")
 
-          let nombre=this.nombre.value
+          let nombre=this.nombre.val()
 
-          let descripcion=this.descripcion.value
+          let descripcion=this.descripcion.val()
           
-          let fecha=this.fecha.value
+          let fecha=this.fecha.val()
           
-          let duracion=this.duracion.value
+          let duracion=this.duracion.val()
 
-          let imagen=this.imagen.value
+          let imagen=this.imagen.val()
 
           let vista=null
-          if(document.getElementById('vistaSi').checked){
+          if($('#vistaSi').is(':checked')){
                vista=true
           }
-          if(document.getElementById('vistaNo').checked){
+          if($('#vistaNo').is(':checked')){
                vista=false
           }
 
-          let genero=document.getElementById('genero')
-          let opcion=genero.options[genero.selectedIndex].value
+          let genero=$('#genero option:selected');
+          let opcion=genero.val()
           
           if(nombre==''){
-               error.style.display='block'
-               this.nombre.style.borderColor="red"
+               error.css('display', 'block')
+               this.nombre.css('borderColor',"red")
           }
           else if(descripcion==''){
-               error.style.display='block'
-               this.descripcion.style.borderColor="red"
+               error.css('display', 'block')
+               this.descripcion.css('borderColor',"red")
           }
           else if(fecha==''){
-               error.style.display='block'
-               this.fecha.style.borderColor="red"
+               error.css('display', 'block')
+               this.fecha.css('borderColor',"red")
           }
           else if(duracion==''){
-               error.style.display='block'
-               this.duracion.style.borderColor="red"
+               error.css('display', 'block')
+               this.duracion.css('borderColor',"red")
           }
           else{
                let pelicula= new Pelicula()
@@ -134,7 +134,7 @@ export class VistaNueva extends Vista {
                
                this.controlador.nuevaPelicula(pelicula)
                this.pulsarBorrar()
-               insertado.style.display='block'
+               insertado.css('display','block')
           }
 
      }

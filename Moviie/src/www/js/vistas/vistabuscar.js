@@ -18,7 +18,7 @@ export class VistaBuscar extends Vista {
           this.div=$('#buscar')
 
           this.aceptar=this.div.find('button')[0]
-          this.aceptar.click(this.pulsarAceptar.bind(this))
+          this.aceptar.onclick=this.pulsarAceptar.bind(this)
 	}
 
      /**
@@ -33,8 +33,8 @@ export class VistaBuscar extends Vista {
                vista=false
           }
 
-          let genero=document.getElementById('generoBuscar')
-          let opcion=genero.options[genero.selectedIndex].value
+          let genero=$('#generoBuscar option:selected');
+          let opcion=genero.val()
           let lista=this.controlador.pulsarBuscar(vista, opcion)
      }
 
@@ -43,32 +43,32 @@ export class VistaBuscar extends Vista {
       * @param {Array} lista 
       */
      listar(lista){
-          let resul=document.getElementById('resul')
-          resul.innerHTML = ""        //vaciamos el div
+          let resul=$('#resul')
+          resul.empty()        //vaciamos el div
           if(lista==''){      //si la lista viene vacia porque no hay coincidencias
-               let vacio=document.createElement('h2')
-               vacio.appendChild(document.createTextNode('No hay datos que coincidan'))
-               resul.appendChild(vacio)
+               let vacio=$('<h2></h2>')
+               vacio.append('No hay datos que coincidan')
+               resul.append(vacio)
           }
           else{
                for(let item of lista){
-                    let div=document.createElement('div')
-                    div.className='pelicula'
+                    let div=$('<div></div>')
+                    div.addClass('pelicula')
                     if(item.imagen!=''){
-                         div.style.backgroundImage="url('"+item.imagen+"')"
+                         div.css('backgroundImage',"url('"+item.imagen+"')")
                     }
                     else{
-                         div.style.backgroundImage="url('assets/recursos/fondo.png')"
+                         div.css('backgroundImage',"url('assets/recursos/fondo.png')")
                     }
 
-                    let oculto=document.createElement('div')
-                    oculto.className='oculto'
-                    div.appendChild(oculto)
+                    let oculto=$('<div></div>')
+                    oculto.addClass('oculto')
+                    div.append(oculto)
 
-                    let titulo=document.createElement('h2')
-                    div.appendChild(titulo)
-                    titulo.appendChild(document.createTextNode(item.nombre))
-                    resul.appendChild(div)
+                    let titulo=$('<h2></h2>')
+                    div.append(titulo)
+                    titulo.append(item.nombre)
+                    resul.append(div)
                }
                this.anadirClick()
           }
@@ -78,8 +78,8 @@ export class VistaBuscar extends Vista {
       * Método para añadir el método onclick a cada pelicula
       */
      anadirClick(){
-          let div=document.getElementById('resul')
-          let listado=div.getElementsByClassName('pelicula')
+          let div=$('#resul')
+          let listado=div.find('.pelicula')
           for(let peli of listado){
                peli.onclick=this.pulsarPelicula.bind(this)
           }

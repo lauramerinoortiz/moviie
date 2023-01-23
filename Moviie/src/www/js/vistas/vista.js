@@ -18,10 +18,10 @@ export class Vista{
 	mostrar(ver){
 		if(ver){
 			this.div.show()
-			console.log('mostrando ', this.div)
+			//console.log('mostrando ', this.div)
 		}
 		else{
-			console.log('ocultando ', this.div)
+			//console.log('ocultando ', this.div)
 			this.div.hide()
 		}
 	}

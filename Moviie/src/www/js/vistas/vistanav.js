@@ -15,18 +15,20 @@ export class VistaNav{
 		this.liLogo = $('li')[0]
 		this.liListado = $('li')[1]
 		this.liNuevo = $('li')[2]
+		console.log(this.liNuevo)
 		this.liBuscar = $('li')[3]
 		
-		this.liListado.click(this.pulsarListado.bind(this))
-		this.liNuevo.click(this.pulsarNuevo.bind(this)) 
-		this.liLogo.click(this.pulsarListado.bind(this))
-		this.liBuscar.click(this.pulsarBuscar.bind(this)) 
+		this.liListado.onclick=this.pulsarListado.bind(this)
+		this.liNuevo.onclick=this.pulsarNuevo.bind(this)
+		this.liLogo.onclick=this.pulsarListado.bind(this)
+		this.liBuscar.onclick=this.pulsarBuscar.bind(this) 
 	}
 
 	/**
 	 *	Atención a la pulsación sobre el enlace del listado
 	 */
 	pulsarListado() {
+		console.log('pulsando listado')
 		this.controlador.pulsarListado()
 	}
 
@@ -35,6 +37,7 @@ export class VistaNav{
 	 *	Atención a la pulsación sobre el enlace de nuevo
 	 */
 	pulsarNuevo() {
+		console.log('pulsando nuevo')
 		this.controlador.pulsarNavNuevo()
 	}
 
@@ -42,6 +45,7 @@ export class VistaNav{
 	 *	Atención a la pulsación sobre el enlace de buscar
 	 */
 	 pulsarBuscar() {
+		console.log('pulsando buscar')
 		this.controlador.pulsarNavBuscar()
 	}
 

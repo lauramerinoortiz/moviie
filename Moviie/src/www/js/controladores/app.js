@@ -29,8 +29,8 @@ class Controlador {
 	}
 
 	iniciar2(){
+		console.log('iniciar 2')
 		this.nav = $('nav')
-		console.log(this.nav)
 		this.vistaNav = new VistaNav(this.nav, this)
 
         this.divlistado= $('#inicio')
@@ -138,7 +138,7 @@ class Controlador {
     /**
      * Método que muestra la pantalla de confimacion de eliminacion
      */
-    mostrarModificar(pelicula){
+    mostrarModificar(){
         this.ocultarVistas()
 		this.vistaModificar.mostrar(true)
     }

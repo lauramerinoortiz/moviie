@@ -36,7 +36,7 @@ export class VistaModificar extends Vista {
           this.amazon.click(this.anadirPlataforma.bind(this,'Amazon'))
 
           this.cancelar=this.div.find('button')[0]
-          this.cancelar.click(this.pulsarCancelar.bind(this))
+          this.cancelar.onclick=this.pulsarCancelar.bind(this)
 
           this.plataformas=new Set()  //Set para guardar los datos introducidos
 	}
@@ -52,44 +52,44 @@ export class VistaModificar extends Vista {
       * Método para cuando damos click a Aceptar
       */
      pulsarAceptar(id) {
-          let error=document.getElementById('camposrellenosEditar')
+          let error=$('#camposrellenosEditar')
           console.log(id)
-          if(this.nombre.value==''){
-               error.style.display='block'
-               this.nombre.style.borderColor="red"
+          if(this.nombre.val()==undefined){
+               error.css('display','block')
+               this.nombre.css('borderColor',"red")
           }
-          else if(this.descripcion.value==''){
-               error.style.display='block'
-               this.descripcion.style.borderColor="red"
+          else if(this.descripcion.val()==undefined){
+               error.css('display','block')
+               this.descripcion.css('borderColor',"red")
           }
-          else if(this.fecha.value==''){
-               error.style.display='block'
-               this.fecha.style.borderColor="red"
+          else if(this.fecha.val()==undefined){
+               error.css('display','block')
+               this.fecha.css('borderColor',"red")
           }
-          else if(this.duracion.value==''){
-               error.style.display='block'
-               this.duracion.style.borderColor="red"
+          else if(this.duracion.val()==undefined){
+               error.css('display','block')
+               this.duracion.css('borderColor',"red")
           }
           else{
                //Coger los datos del formulario
                let peliculaNueva=new Pelicula()
-               peliculaNueva.setNombre(this.nombre.value)
-               peliculaNueva.setDescripcion(this.descripcion.value)
-               peliculaNueva.setFecha(this.fecha.value)
-               peliculaNueva.setDuracion(this.duracion.value)
-               peliculaNueva.setImagen(this.imagen.value)
+               peliculaNueva.setNombre(this.nombre.val())
+               peliculaNueva.setDescripcion(this.descripcion.val())
+               peliculaNueva.setFecha(this.fecha.val())
+               peliculaNueva.setDuracion(this.duracion.val())
+               peliculaNueva.setImagen(this.imagen.val())
                peliculaNueva.setPlataforma(this.plataformas)
 
                let vista=null
-               if(document.getElementById('vistaSiEditar').checked){
+               if($('#vistaSiEditar').is(':checked')){
                     vista=true
                }
-               if(document.getElementById('vistaNoEditar').checked){
+               if($('#vistaNoEditar').is(':checked')){
                     vista=false
                }
 
-               let genero=document.getElementById('generoEditar')
-               let opcion=genero.options[genero.selectedIndex].value
+               let genero=$('#generoEditar option:selected');
+               let opcion=genero.val()
                peliculaNueva.setVista(vista)
                peliculaNueva.setGenero(opcion)
 
@@ -101,25 +101,25 @@ export class VistaModificar extends Vista {
       * Método para cuando damos al boton borrar que limpia el formulario
       */
      pulsarBorrar() {
-          this.nombre.value=''
-          this.descripcion.value=''
-          this.fecha.value=''
-          this.duracion.value=''
-          this.imagen.value=''
-          document.getElementsByTagName('select')[0].value='Drama'
+          this.nombre.text=''
+          this.descripcion.text=''
+          this.fecha.text=''
+          this.duracion.text=''
+          this.imagen.text=''
+          $('select')[0].text='Drama'
      
           
-          this.netflix.checked=false
-          this.hbo.checked=false
-          this.disney.checked=false
-          this.amazon.checked=false
+          this.netflix.attr('checked',false)
+          this.hbo.attr('checked',false)
+          this.disney.attr('checked',false)
+          this.amazon.attr('checked',false)
           this.plataformas.clear()
-          let error=document.getElementById('camposrellenosEditar')
-          error.style.display='none'
-          this.nombre.style.borderColor="#808080"
-          this.descripcion.style.borderColor="#808080"
-          this.fecha.style.borderColor="#808080"
-          this.duracion.style.borderColor="#808080"
+          let error=$('#camposrellenosEditar')
+          error.css('display','none')
+          this.nombre.css('borderColor',"#808080")
+          this.descripcion.css('borderColor',"#808080")
+          this.fecha.css('borderColor',"#808080")
+          this.duracion.css('borderColor',"#808080")
      }
 
      /**
@@ -128,29 +128,30 @@ export class VistaModificar extends Vista {
       */
      mostrarDatos(pelicula){
           this.pulsarBorrar()
-          this.nombre.value=pelicula.nombre
-          this.descripcion.value=pelicula.descripcion
-          this.fecha.value=pelicula.fecha
-          this.duracion.value=pelicula.duracion
-          this.imagen.value=pelicula.imagen
+          console.log(pelicula.nombre)
+          this.nombre.val(pelicula.nombre)
+          this.descripcion.val(pelicula.descripcion)
+          this.fecha.val(pelicula.fecha)
+          this.duracion.val(pelicula.duracion)
+          this.imagen.val(pelicula.imagen)
           for(let item of pelicula.plataforma){
                this.plataformas.add(item)
           }
-          document.getElementById('generoEditar').value=pelicula.genero
+          $('#generoEditar').val(pelicula.genero)
           if(this.plataformas.has('Netflix')){
-               this.netflix.checked=true
+               this.netflix.attr('checked',true)
           }
           if(this.plataformas.has('Hbo')){
-               this.hbo.checked=true
+               this.hbo.attr('checked',true)
           }
           if(this.plataformas.has('Amazon')){
-               this.amazon.checked=true
+               this.amazon.attr('checked',true)
           }
           if(this.plataformas.has('Disney')){
-               this.disney.checked=true
+               this.disney.attr('checked',true)
           }
 
-          this.aceptar=this.div.getElementsByTagName('button')[1]
+          this.aceptar=this.div.find('button')[1]
           this.aceptar.onclick = this.pulsarAceptar.bind(this, pelicula.id)
           
      }

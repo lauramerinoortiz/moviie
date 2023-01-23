@@ -78,6 +78,7 @@ export class Idb{
 			const cursor = evento.target.result;
 			if (cursor) {
 				let pelicula = cursor.value
+                console.log(pelicula)
 				if (pelicula.vista == vista && pelicula.genero == genero)
 					this.listaResultados.push(pelicula)
 				    cursor.continue()

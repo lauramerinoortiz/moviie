@@ -25,7 +25,7 @@ export class VistaListado extends Vista {
       * Método que añade a cada div de pelicula el onclick al metodo pulsarPelicula del controlador
       */
      anadirClick(){
-          this.peliculas=document.getElementsByClassName('pelicula')
+          this.peliculas=$('.pelicula')
           for(let peli of this.peliculas){
                let nombre=peli.lastChild.innerHTML
                peli.onclick=this.pulsarPelicula.bind(this, nombre)
@@ -44,7 +44,7 @@ export class VistaListado extends Vista {
       * @param {Array} lista 
       */
      mostrarListado(lista){
-          this.listado.innerHTML = ""        //vaciamos el div
+          this.listado.empty()       //vaciamos el div
           if(lista==''){
                let vacio=$('<h1></h1>')
                vacio.append('No hay datos aún. Dale ya a "Nueva" y añade una película.')
@@ -57,19 +57,19 @@ export class VistaListado extends Vista {
      
                for(let item of lista){
                     let div=$('<div></div>')
-                    div.className='pelicula'
+                    div.addClass('pelicula')
                     if(item.imagen!=''){
-                         div.style.backgroundImage="url('"+item.imagen+"')"
+                         div.css('backgroundImage',"url('"+item.imagen+"')")
                     }
                     else{
-                         div.style.backgroundImage="url('assets/recursos/fondo.png')"
+                         div.css('backgroundImage',"url('assets/recursos/fondo.png')")
                     }
      
                     let oculto=$('<div></div>')
-                    oculto.className='oculto'
+                    oculto.addClass('oculto')
                     div.append(oculto)
      
-                    let titulo=document.createElement('<h2></h2>')
+                    let titulo=$('<h2></h2>')
                     div.append(titulo)
                     titulo.append(item.nombre)
                     this.listado.append(div)

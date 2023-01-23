@@ -19,7 +19,7 @@ export class VistaDatos extends Vista {
           this.eliminar=this.div.find('button')[0]
           this.modificar=this.div.find('button')[1]
 
-          this.modificar.click(this.pulsarModificar.bind(this))
+          this.modificar.onclick=this.pulsarModificar.bind(this)
 
 	}
      /**
@@ -28,40 +28,40 @@ export class VistaDatos extends Vista {
       */
      mostrarDatos(pelicula){
           //Buscamos los datos
-          let nombre=document.getElementById("datosNombre")
-          let descripcion=document.getElementById("datosDescripcion")
-          let fecha=document.getElementById("datosFecha")
-          let duracion=document.getElementById("datosDuracion")
-          let plataformas=document.getElementById("datosPlataformas")
-          let genero=document.getElementById("datosGenero")
-          let vista=document.getElementById("datosVista")
+          let nombre=$("#datosNombre")
+          let descripcion=$("#datosDescripcion")
+          let fecha=$("#datosFecha")
+          let duracion=$("#datosDuracion")
+          let plataformas=$("#datosPlataformas")
+          let genero=$("#datosGenero")
+          let vista=$("#datosVista")
           //Borramos el contenido que pudiera haber anteriormente
-          nombre.innerHTML=''
-          descripcion.innerHTML=''
-          fecha.innerHTML=''
-          duracion.innerHTML=''
-          plataformas.innerHTML=''
-          genero.innerHTML=''
-          vista.innerHTML=''
+          nombre.empty()
+          descripcion.empty()
+          fecha.empty()
+          duracion.empty()
+          plataformas.empty()
+          genero.empty()
+          vista.empty()
           //Metemos los datos de la pelicula
-          nombre.appendChild(document.createTextNode(pelicula.nombre))
-          descripcion.appendChild(document.createTextNode(pelicula.descripcion))
-          fecha.appendChild(document.createTextNode(pelicula.fecha))
-          duracion.appendChild(document.createTextNode(pelicula.duracion))
+          nombre.append(pelicula.nombre)
+          descripcion.append(pelicula.descripcion)
+          fecha.append(pelicula.fecha)
+          duracion.append(pelicula.duracion)
           let plat=''
           for(let item of pelicula.plataforma){
                plat+=item+'; '
           }
-          plataformas.appendChild(document.createTextNode(plat))
-          genero.appendChild(document.createTextNode(pelicula.genero))
+          plataformas.append(plat)
+          genero.append(pelicula.genero)
           if(pelicula.vista){
-               vista.appendChild(document.createTextNode('Si'))
+               vista.append('Si')
           }
           else{
-               vista.appendChild(document.createTextNode('No'))
+               vista.append('No')
           }
 
-          this.eliminar.onclick = this.pulsarEliminar.bind(this, pelicula.id)
+          this.eliminar.onclick=this.pulsarEliminar.bind(this, pelicula.id)
      }
 
      /**
