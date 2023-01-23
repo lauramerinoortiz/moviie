@@ -15,31 +15,31 @@ export class VistaNueva extends Vista {
 	constructor(div, controlador) {
 		super(div)
           this.controlador = controlador
-          this.div=document.getElementById('nueva')
+          this.div=$('#nueva')
 
-          this.nombre=document.getElementById('nombre')
-          this.descripcion=document.getElementById('descripcion')
-          this.fecha=document.getElementById('fecha')
-          this.duracion=document.getElementById('duracion')
-          this.imagen=document.getElementById('imagen')
+          this.nombre=$('#nombre')
+          this.descripcion=$('#descripcion')
+          this.fecha=$('#fecha')
+          this.duracion=$('#duracion')
+          this.imagen=$('#imagen')
 
-          this.borrar=this.div.getElementsByTagName('button')[0]
-          this.borrar.onclick = this.pulsarBorrar.bind(this)
+          this.borrar=this.div.find('button')[0]
+          this.borrar.click(this.pulsarBorrar.bind(this)) 
 
-          this.aceptar=this.div.getElementsByTagName('button')[1]
-          this.aceptar.onclick = this.pulsarAceptar.bind(this)
+          this.aceptar=this.div.find('button')[1]
+          this.aceptar.click(this.pulsarAceptar.bind(this)) 
 
-          this.netflix=document.getElementById('netflix')
-          this.netflix.onclick=this.anadirPlataforma.bind(this,'Netflix')
+          this.netflix=$('#netflix')
+          this.netflix.click(this.anadirPlataforma.bind(this,'Netflix'))
 
-          this.hbo=document.getElementById('hbo')
-          this.hbo.onclick=this.anadirPlataforma.bind(this, 'Hbo')
+          this.hbo=$('#hbo')
+          this.hbo.click(this.anadirPlataforma.bind(this, 'Hbo'))
 
-          this.disney=document.getElementById('disney')
-          this.disney.onclick=this.anadirPlataforma.bind(this, 'Disney')
+          this.disney=$('#disney')
+          this.disney.click(this.anadirPlataforma.bind(this, 'Disney'))
 
-          this.amazon=document.getElementById('amazon')
-          this.amazon.onclick=this.anadirPlataforma.bind(this,'Amazon')
+          this.amazon=$('#amazon')
+          this.amazon.click(this.anadirPlataforma.bind(this,'Amazon'))
 
           this.plataformas=new Set()
 	}
@@ -53,7 +53,7 @@ export class VistaNueva extends Vista {
           this.fecha.value=''
           this.duracion.value=''
           this.imagen.value=''
-          document.getElementsByTagName('select')[0].value='Drama'
+          $('select')[0]='Drama'
   
           
           this.netflix.checked=false

@@ -15,10 +15,10 @@ export class VistaBuscar extends Vista {
 		super(div)
           this.controlador = controlador
 
-          this.div=document.getElementById('buscar')
+          this.div=$('#buscar')
 
-          this.aceptar=this.div.getElementsByTagName('button')[0]
-          this.aceptar.onclick = this.pulsarAceptar.bind(this)
+          this.aceptar=this.div.find('button')[0]
+          this.aceptar.click(this.pulsarAceptar.bind(this))
 	}
 
      /**

@@ -15,7 +15,7 @@ export class VistaListado extends Vista {
 		super(div)
           this.controlador = controlador
 
-          this.listado=document.getElementById('listado')
+          this.listado=$('#listado')
           this.peliculas
           this.anadirClick()
 
@@ -46,17 +46,17 @@ export class VistaListado extends Vista {
      mostrarListado(lista){
           this.listado.innerHTML = ""        //vaciamos el div
           if(lista==''){
-               let vacio=document.createElement('h1')
-               vacio.appendChild(document.createTextNode('No hay datos aún. Dale ya a "Nueva" y añade una película.'))
-               this.listado.appendChild(vacio)
+               let vacio=$('<h1></h1>')
+               vacio.append('No hay datos aún. Dale ya a "Nueva" y añade una película.')
+               this.listado.append(vacio)
           }
           else{
-               let cabezado=document.createElement('h1')
-               cabezado.appendChild(document.createTextNode('Listado de películas'))
-               this.listado.appendChild(cabezado)
+               let cabezado=$('<h1></h1>')
+               cabezado.append('Listado de películas')
+               this.listado.append(cabezado)
      
                for(let item of lista){
-                    let div=document.createElement('div')
+                    let div=$('<div></div>')
                     div.className='pelicula'
                     if(item.imagen!=''){
                          div.style.backgroundImage="url('"+item.imagen+"')"
@@ -65,14 +65,14 @@ export class VistaListado extends Vista {
                          div.style.backgroundImage="url('assets/recursos/fondo.png')"
                     }
      
-                    let oculto=document.createElement('div')
+                    let oculto=$('<div></div>')
                     oculto.className='oculto'
-                    div.appendChild(oculto)
+                    div.append(oculto)
      
-                    let titulo=document.createElement('h2')
-                    div.appendChild(titulo)
-                    titulo.appendChild(document.createTextNode(item.nombre))
-                    this.listado.appendChild(div)
+                    let titulo=document.createElement('<h2></h2>')
+                    div.append(titulo)
+                    titulo.append(item.nombre)
+                    this.listado.append(div)
                }
                this.anadirClick()       //añadimos a todas las peliculas el onclick que abre sus datos
           }

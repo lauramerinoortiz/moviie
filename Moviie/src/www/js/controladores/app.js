@@ -17,7 +17,7 @@ class Controlador {
 	 * Cuando carga la web ejecuta el método iniciar
 	 */
 	constructor() {
-		window.onload=this.iniciar.bind(this)
+		$(document).ready(this.iniciar.bind(this))
 	}
 
 	/**
@@ -29,25 +29,26 @@ class Controlador {
 	}
 
 	iniciar2(){
-		this.nav = document.getElementsByTagName('nav')[0]
+		this.nav = $('nav')
+		console.log(this.nav)
 		this.vistaNav = new VistaNav(this.nav, this)
 
-        this.divlistado=document.getElementById('inicio')
+        this.divlistado= $('#inicio')
 		this.vistaListado=new VistaListado(this.divlistado, this)
 
-		this.divnueva=document.getElementById('nueva')
+		this.divnueva=$('#nueva')
 		this.vistaNueva=new VistaNueva(this.divnueva, this)
         
-        this.divdatos=document.getElementById('datos')
+        this.divdatos=$('#datos')
 		this.vistaDatos=new VistaDatos(this.divdatos, this)
 
-		this.divEliminar=document.getElementById('eliminar')
+		this.divEliminar=$('#eliminar')
         this.vistaEliminar=new VistaEliminar(this.diveliminar,  this)
 
-        this.divModificar=document.getElementById('modificar')
+        this.divModificar=$('#modificar')
         this.vistaModificar=new VistaModificar(this.divModificar, this)
 
-		this.divBuscar=document.getElementById('buscar')
+		this.divBuscar=$('#buscar')
         this.vistaBuscar=new VistaBuscar(this.divBuscar, this)
 		
         this.ocultarVistas()

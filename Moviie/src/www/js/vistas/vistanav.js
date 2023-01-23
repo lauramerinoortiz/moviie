@@ -12,15 +12,15 @@ export class VistaNav{
 		this.controlador = controlador
 		this.nav = nav
 		
-		this.liLogo = this.nav.getElementsByTagName('li')[0]
-		this.liListado = this.nav.getElementsByTagName('li')[1]
-		this.liNuevo = this.nav.getElementsByTagName('li')[2]
-		this.liBuscar = this.nav.getElementsByTagName('li')[3]
+		this.liLogo = $('li')[0]
+		this.liListado = $('li')[1]
+		this.liNuevo = $('li')[2]
+		this.liBuscar = $('li')[3]
 		
-		this.liListado.onclick = this.pulsarListado.bind(this)
-		this.liNuevo.onclick = this.pulsarNuevo.bind(this)
-		this.liLogo.onclick = this.pulsarListado.bind(this)
-		this.liBuscar.onclick = this.pulsarBuscar.bind(this)
+		this.liListado.click(this.pulsarListado.bind(this))
+		this.liNuevo.click(this.pulsarNuevo.bind(this)) 
+		this.liLogo.click(this.pulsarListado.bind(this))
+		this.liBuscar.click(this.pulsarBuscar.bind(this)) 
 	}
 
 	/**

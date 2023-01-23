@@ -15,11 +15,11 @@ export class VistaDatos extends Vista {
 		super(div)
           this.controlador = controlador
 
-          this.div=document.getElementById('datos')
-          this.eliminar=this.div.getElementsByTagName('button')[0]
-          this.modificar=this.div.getElementsByTagName('button')[1]
+          this.div=$('#datos')
+          this.eliminar=this.div.find('button')[0]
+          this.modificar=this.div.find('button')[1]
 
-          this.modificar.onclick=this.pulsarModificar.bind(this)
+          this.modificar.click(this.pulsarModificar.bind(this))
 
 	}
      /**

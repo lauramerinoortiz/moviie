@@ -15,28 +15,28 @@ export class VistaModificar extends Vista {
 	constructor(div, controlador) {
 		super(div)
           this.controlador = controlador
-          this.div=document.getElementById('modificar')
+          this.div=$('#modificar')
 
-          this.nombre=document.getElementById('nombreEditar')
-          this.descripcion=document.getElementById('descripcionEditar')
-          this.fecha=document.getElementById('fechaEditar')
-          this.duracion=document.getElementById('duracionEditar')
-          this.imagen=document.getElementById('imagenEditar')
+          this.nombre=$('#nombreEditar')
+          this.descripcion=$('#descripcionEditar')
+          this.fecha=$('#fechaEditar')
+          this.duracion=$('#duracionEditar')
+          this.imagen=$('#imagenEditar')
 
-          this.netflix=document.getElementById('netflixEditar')
-          this.netflix.onclick=this.anadirPlataforma.bind(this,'Netflix')
+          this.netflix=$('#netflixEditar')
+          this.netflix.click(this.anadirPlataforma.bind(this,'Netflix'))
 
-          this.hbo=document.getElementById('hboEditar')
-          this.hbo.onclick=this.anadirPlataforma.bind(this, 'Hbo')
+          this.hbo=$('#hboEditar')
+          this.hbo.click(this.anadirPlataforma.bind(this, 'Hbo'))
 
-          this.disney=document.getElementById('disneyEditar')
-          this.disney.onclick=this.anadirPlataforma.bind(this, 'Disney')
+          this.disney=$('#disneyEditar')
+          this.disney.click(this.anadirPlataforma.bind(this, 'Disney'))
 
-          this.amazon=document.getElementById('amazonEditar')
-          this.amazon.onclick=this.anadirPlataforma.bind(this,'Amazon')
+          this.amazon=$('#amazonEditar')
+          this.amazon.click(this.anadirPlataforma.bind(this,'Amazon'))
 
-          this.cancelar=this.div.getElementsByTagName('button')[0]
-          this.cancelar.onclick = this.pulsarCancelar.bind(this)
+          this.cancelar=this.div.find('button')[0]
+          this.cancelar.click(this.pulsarCancelar.bind(this))
 
           this.plataformas=new Set()  //Set para guardar los datos introducidos
 	}

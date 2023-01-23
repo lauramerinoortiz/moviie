@@ -16,12 +16,12 @@ export class VistaEliminar extends Vista {
           this.id
           this.controlador = controlador
 
-          this.div=document.getElementById('eliminar')
-          this.cancelar=this.div.getElementsByTagName('button')[0]
-          this.cancelar.onclick = this.pulsarCancelar.bind(this)
+          this.div=$('#eliminar')
+          this.cancelar=this.div.find('button')[0]
+          this.cancelar.click(this.pulsarCancelar.bind(this))
 
-          this.aceptar=this.div.getElementsByTagName('button')[1]
-          this.aceptar.onclick = this.pulsarAceptar.bind(this)
+          this.aceptar=this.div.find('button')[1]
+          this.aceptar.click(this.pulsarAceptar.bind(this))
 
 	}
 

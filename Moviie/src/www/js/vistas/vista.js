@@ -17,11 +17,12 @@ export class Vista{
 	 */
 	mostrar(ver){
 		if(ver){
-			this.div.style.display='block'
+			this.div.show()
 			console.log('mostrando ', this.div)
 		}
 		else{
-			this.div.style.display='none'
+			console.log('ocultando ', this.div)
+			this.div.hide()
 		}
 	}
 }
