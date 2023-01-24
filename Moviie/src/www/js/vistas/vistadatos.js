@@ -16,10 +16,10 @@ export class VistaDatos extends Vista {
           this.controlador = controlador
 
           this.div=$('#datos')
-          this.eliminar=this.div.find('button')[0]
-          this.modificar=this.div.find('button')[1]
+          this.eliminar=this.div.find('button').eq(0)
+          this.modificar=this.div.find('button').eq(1)
 
-          this.modificar.onclick=this.pulsarModificar.bind(this)
+          this.modificar.click(this.pulsarModificar.bind(this))
 
 	}
      /**
@@ -61,7 +61,7 @@ export class VistaDatos extends Vista {
                vista.append('No')
           }
 
-          this.eliminar.onclick=this.pulsarEliminar.bind(this, pelicula.id)
+          this.eliminar.click(this.pulsarEliminar.bind(this, pelicula.id))
      }
 
      /**

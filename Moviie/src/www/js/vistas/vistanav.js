@@ -12,16 +12,15 @@ export class VistaNav{
 		this.controlador = controlador
 		this.nav = nav
 		
-		this.liLogo = $('li')[0]
-		this.liListado = $('li')[1]
-		this.liNuevo = $('li')[2]
-		console.log(this.liNuevo)
-		this.liBuscar = $('li')[3]
+		this.liLogo = $('li').eq(0)
+		this.liListado = $('li').eq(1)
+		this.liNuevo = $('li').eq(2)
+		this.liBuscar = $('li').eq(3)
 		
-		this.liListado.onclick=this.pulsarListado.bind(this)
-		this.liNuevo.onclick=this.pulsarNuevo.bind(this)
-		this.liLogo.onclick=this.pulsarListado.bind(this)
-		this.liBuscar.onclick=this.pulsarBuscar.bind(this) 
+		this.liListado.click(this.pulsarListado.bind(this))
+		this.liNuevo.click(this.pulsarNuevo.bind(this))
+		this.liLogo.click(this.pulsarListado.bind(this))
+		this.liBuscar.click(this.pulsarBuscar.bind(this))
 	}
 
 	/**

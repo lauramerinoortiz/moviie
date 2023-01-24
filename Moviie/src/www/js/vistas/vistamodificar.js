@@ -101,18 +101,18 @@ export class VistaModificar extends Vista {
       * Método para cuando damos al boton borrar que limpia el formulario
       */
      pulsarBorrar() {
-          this.nombre.text=''
-          this.descripcion.text=''
-          this.fecha.text=''
-          this.duracion.text=''
-          this.imagen.text=''
-          $('select')[0].text='Drama'
+          this.nombre.val('')
+          this.descripcion.val('')
+          this.fecha.val('')
+          this.duracion.val('')
+          this.imagen.val('')
+          $('select').eq(0).val('Drama')
      
           
-          this.netflix.attr('checked',false)
-          this.hbo.attr('checked',false)
-          this.disney.attr('checked',false)
-          this.amazon.attr('checked',false)
+          this.netflix.prop("checked", false)
+          this.hbo.prop("checked", false)
+          this.disney.prop("checked", false)
+          this.amazon.prop("checked", false)
           this.plataformas.clear()
           let error=$('#camposrellenosEditar')
           error.css('display','none')
@@ -139,19 +139,19 @@ export class VistaModificar extends Vista {
           }
           $('#generoEditar').val(pelicula.genero)
           if(this.plataformas.has('Netflix')){
-               this.netflix.attr('checked',true)
+               this.netflix.prop("checked", true)
           }
           if(this.plataformas.has('Hbo')){
-               this.hbo.attr('checked',true)
+               this.hbo.prop("checked", true)
           }
           if(this.plataformas.has('Amazon')){
-               this.amazon.attr('checked',true)
+               this.amazon.prop("checked", true)
           }
           if(this.plataformas.has('Disney')){
-               this.disney.attr('checked',true)
+               this.disney.prop("checked", true)
           }
 
-          this.aceptar=this.div.find('button')[1]
+          this.aceptar=this.div.find('button').eq(1)
           this.aceptar.onclick = this.pulsarAceptar.bind(this, pelicula.id)
           
      }

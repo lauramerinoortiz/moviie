@@ -23,23 +23,24 @@ export class VistaNueva extends Vista {
           this.duracion=$('#duracion')
           this.imagen=$('#imagen')
 
-          this.borrar=this.div.find('button')[0]
-          this.borrar.onclick=this.pulsarBorrar.bind(this)
+          this.borrar=this.div.find('button').eq(0)
+          console.log(this.borrar)
+          this.borrar.click(this.pulsarBorrar.bind(this))
 
-          this.aceptar=this.div.find('button')[1]
-          this.aceptar.onclick=this.pulsarAceptar.bind(this)
+          this.aceptar=this.div.find('button').eq(1)
+          this.aceptar.click(this.pulsarAceptar.bind(this))
 
           this.netflix=$('#netflix')
-          this.netflix.onclick=this.anadirPlataforma.bind(this,'Netflix')
+          this.netflix.click(this.anadirPlataforma.bind(this,'Netflix'))
 
           this.hbo=$('#hbo')
-          this.hbo.onclick=this.anadirPlataforma.bind(this, 'Hbo')
+          this.hbo.click(this.anadirPlataforma.bind(this, 'Hbo'))
 
           this.disney=$('#disney')
-          this.disney.onclick=this.anadirPlataforma.bind(this, 'Disney')
+          this.disney.click(this.anadirPlataforma.bind(this, 'Disney'))
 
           this.amazon=$('#amazon')
-          this.amazon.onclick=this.anadirPlataforma.bind(this,'Amazon')
+          this.amazon.click(this.anadirPlataforma.bind(this,'Amazon'))
 
           this.plataformas=new Set()
 	}
@@ -48,18 +49,18 @@ export class VistaNueva extends Vista {
       * Método para cuando damos al boton borrar que limpia el formulario
       */
      pulsarBorrar() {
-          this.nombre.text=''
-          this.descripcion.text=''
-          this.fecha.text=''
-          this.duracion.text=''
-          this.imagen.text=''
-          $('select')[0]='Drama'
+          console.log('borrando')
+          this.nombre.val('')
+          this.descripcion.val('')
+          this.fecha.val('')
+          this.duracion.val('')
+          this.imagen.val('')
+          $('select').eq(0).val('Drama')
   
-          
-          this.netflix.checked=false
-          this.hbo.checked=false
-          this.disney.checked=false
-          this.amazon.checked=false
+          this.netflix.prop("checked", false)
+          this.hbo.prop("checked", false)
+          this.disney.prop("checked", false)
+          this.amazon.prop("checked", false)
           this.plataformas.clear()
           let error=$('#camposrellenos')
           error.css('display','none')

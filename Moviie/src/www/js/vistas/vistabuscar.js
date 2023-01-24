@@ -17,8 +17,8 @@ export class VistaBuscar extends Vista {
 
           this.div=$('#buscar')
 
-          this.aceptar=this.div.find('button')[0]
-          this.aceptar.onclick=this.pulsarAceptar.bind(this)
+          this.aceptar=this.div.find('button').eq(0)
+          this.aceptar.click(this.pulsarAceptar.bind(this))
 	}
 
      /**
@@ -26,10 +26,10 @@ export class VistaBuscar extends Vista {
       */
      pulsarAceptar() {
           let vista
-          if(document.getElementById('vistaSiBuscar').checked){
+          if($('#vistaSiBuscar').is(':checked')){
                vista=true
           }
-          if(document.getElementById('vistaNoBuscar').checked){
+          if($('#vistaNoBuscar').is(':checked')){
                vista=false
           }
 
