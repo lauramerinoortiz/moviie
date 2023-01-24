@@ -17,20 +17,8 @@ export class VistaListado extends Vista {
 
           this.listado=$('#listado')
           this.peliculas
-          this.anadirClick()
-
 	}
 
-     /**
-      * Método que añade a cada div de pelicula el onclick al metodo pulsarPelicula del controlador
-      */
-     anadirClick(){
-          this.peliculas=$('.pelicula')
-          for(let peli of this.peliculas){
-               let nombre=peli.lastChild.innerHTML
-               peli.onclick=this.pulsarPelicula.bind(this, nombre)
-          }
-     }
 
      /**
       * Método para cuando damos click a una pelicula
@@ -73,9 +61,8 @@ export class VistaListado extends Vista {
                     div.append(titulo)
                     titulo.append(item.nombre)
                     this.listado.append(div)
+                    div.click(this.pulsarPelicula.bind(this, item.nombre))
                }
-               this.anadirClick()       //añadimos a todas las peliculas el onclick que abre sus datos
           }
-          
      }
 }

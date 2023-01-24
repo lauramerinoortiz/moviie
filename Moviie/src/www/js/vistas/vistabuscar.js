@@ -69,21 +69,13 @@ export class VistaBuscar extends Vista {
                     div.append(titulo)
                     titulo.append(item.nombre)
                     resul.append(div)
+                    div.click(this.pulsarPelicula.bind(this))
                }
-               this.anadirClick()
+               
           }
      }
 
-     /**
-      * Método para añadir el método onclick a cada pelicula
-      */
-     anadirClick(){
-          let div=$('#resul')
-          let listado=div.find('.pelicula')
-          for(let peli of listado){
-               peli.onclick=this.pulsarPelicula.bind(this)
-          }
-     }
+     
 
      /**
       * Método para cuando damos click a una pelicula
