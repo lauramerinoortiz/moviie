@@ -19,7 +19,7 @@ export class VistaModificar extends Vista {
 
           this.nombre=$('#nombreEditar')
           this.descripcion=$('#descripcionEditar')
-          this.fecha=$('#fechaEditar')
+          this.fecha=$('#fechaEditar').datepicker()
           this.duracion=$('#duracionEditar')
           this.imagen=$('#imagenEditar')
 
@@ -152,7 +152,8 @@ export class VistaModificar extends Vista {
           }
 
           this.aceptar=this.div.find('button').eq(1)
-          this.aceptar.onclick = this.pulsarAceptar.bind(this, pelicula.id)
+          console.log(this.aceptar)
+          this.aceptar.click(this.pulsarAceptar.bind(this, pelicula.id))
           
      }
 
