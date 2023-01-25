@@ -19,7 +19,11 @@ export class VistaNueva extends Vista {
 
           this.nombre=$('#nombre')
           this.descripcion=$('#descripcion')
-          this.fecha=$('#fecha').datepicker()
+          this.fecha=$('#fecha').datepicker( {
+               dateFormat: "dd/mm/yy",
+               changeYear: true,
+               changeMonth: true
+             })
           this.duracion=$('#duracion')
           this.imagen=$('#imagen')
 

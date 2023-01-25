@@ -19,7 +19,11 @@ export class VistaModificar extends Vista {
 
           this.nombre=$('#nombreEditar')
           this.descripcion=$('#descripcionEditar')
-          this.fecha=$('#fechaEditar').datepicker()
+          this.fecha=$('#fechaEditar').datepicker( {
+               dateFormat: "dd/mm/yy",
+               changeMonth: true,
+               changeYear: true
+             })
           this.duracion=$('#duracionEditar')
           this.imagen=$('#imagenEditar')
 
