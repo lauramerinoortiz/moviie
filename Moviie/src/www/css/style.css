@@ -226,6 +226,7 @@ header nav ul li:first-child{
     color: white;
 }
 
+/*Autocomplete*/
 .ui-autocomplete{
     background-color: white;
     width: 200px;
@@ -240,6 +241,7 @@ header nav ul li:first-child{
     background-color: lightskyblue;
 }
 
+/*Chechradio*/
 .ui-checkboxradio, .ui-checkboxradio-label{
     cursor: pointer;
 }
@@ -292,14 +294,19 @@ header nav ul li:first-child{
     color: black;
 }
 
+.ui-datepicker .ui-icon{
+    font-size: 2em;
+    margin: 0px 30px;
+    padding-top: 15px;
+}
 
-.ui-widget-header,.ui-state-default, ui-button {
-    background:#ff3359;
-    border: 1px solid #ff3359;
-    color: black;
-    font-weight: bold;
- }
+.ui-tooltip{
+    background-color: lightblue;
+    width: 300px;
+    border-radius: 5px;
+}
 
+ /*Dialog*/
 .ui-dialog{
     background-color: white;
     top:-800px !important;
@@ -311,6 +318,10 @@ header nav ul li:first-child{
 }
 .ui-dialog-titlebar{
     padding: 20px;
+    background:#ff3359;
+    border: 1px solid #ff3359;
+    color: black;
+    font-weight: bold;
 }
 
 .ui-dialog .ui-button{

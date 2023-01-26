@@ -28,9 +28,13 @@ export class VistaNueva extends Vista {
                changeMonth: true,
                monthNamesShort: ['Enero','Febrero','Marzo','Abril','Mayo','Junio',
                'Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'],
-             })
+               prevText: "⃖",  //flecha izquierda
+               nextText: "⃗",  //flecha derecha
+               dayNamesMin: [ "Dom", "Lun", "Mar", "Mie", "Jue", "Vie", "Sab" ],
+               yearRange: "1895:2045"
+          })
           this.duracion=$('#duracion')
-          this.imagen=$('#imagen')
+          this.imagen=$('#imagen').tooltip()
 
           this.borrar=this.div.find('button').eq(0)
           console.log(this.borrar)

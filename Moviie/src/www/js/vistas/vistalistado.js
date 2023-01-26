@@ -43,7 +43,7 @@ export class VistaListado extends Vista {
                let cabezado=$('<h1></h1>')
                cabezado.append('Listado de películas')
                this.listado.append(cabezado)
-     
+               let cont=5
                for(let item of lista){
                     let div=$('<div></div>')
                     div.addClass('pelicula')
@@ -60,9 +60,13 @@ export class VistaListado extends Vista {
      
                     let titulo=$('<h2></h2>')
                     div.append(titulo)
+                    div.attr("tabindex",cont)
+                    div.attr("role","button")
                     titulo.append(item.nombre)
                     this.listado.append(div)
                     div.click(this.pulsarPelicula.bind(this, item.nombre))
+                    div.keypress(this.pulsarPelicula.bind(this, item.nombre))
+                    cont++
                }
           }
      }

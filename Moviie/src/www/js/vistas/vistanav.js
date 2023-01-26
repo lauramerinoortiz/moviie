@@ -18,9 +18,13 @@ export class VistaNav{
 		this.liBuscar = $('li').eq(3)
 		
 		this.liListado.click(this.pulsarListado.bind(this))
+		this.liListado.keypress(this.pulsarListado.bind(this))
 		this.liNuevo.click(this.pulsarNuevo.bind(this))
+		this.liNuevo.keypress(this.pulsarNuevo.bind(this))
 		this.liLogo.click(this.pulsarListado.bind(this))
+		this.liLogo.keypress(this.pulsarListado.bind(this))
 		this.liBuscar.click(this.pulsarBuscar.bind(this))
+		this.liBuscar.keypress(this.pulsarBuscar.bind(this))
 
 		$("#dialog").dialog({
 			closeText: "X"

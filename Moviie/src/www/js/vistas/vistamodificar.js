@@ -28,6 +28,10 @@ export class VistaModificar extends Vista {
                changeYear: true,
                monthNamesShort: ['Enero','Febrero','Marzo','Abril','Mayo','Junio',
                'Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'],
+               prevText: "⃖",  //flecha izquierda
+               nextText: "⃗",  //flecha derecha
+               dayNamesMin: [ "Dom", "Lun", "Mar", "Mie", "Jue", "Vie", "Sab" ],
+               yearRange: "1895:2045"
              })
           this.duracion=$('#duracionEditar')
           this.imagen=$('#imagenEditar')
