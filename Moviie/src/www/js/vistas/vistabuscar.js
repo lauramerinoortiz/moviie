@@ -45,6 +45,7 @@ export class VistaBuscar extends Vista {
      listar(lista){
           let resul=$('#resul')
           resul.empty()        //vaciamos el div
+          let cont=100
           if(lista==''){      //si la lista viene vacia porque no hay coincidencias
                let vacio=$('<h2></h2>')
                vacio.append('No hay datos que coincidan')
@@ -67,9 +68,13 @@ export class VistaBuscar extends Vista {
 
                     let titulo=$('<h2></h2>')
                     div.append(titulo)
+                    div.attr("tabindex",cont)
+                    div.attr("role","button")
                     titulo.append(item.nombre)
                     resul.append(div)
                     div.click(this.pulsarPelicula.bind(this))
+                    div.keypress(this.pulsarPelicula.bind(this))
+                    cont++
                }
                
           }
