@@ -157,13 +157,13 @@ header nav ul li:first-child{
     text-align: center;
 }
 
-#datos table, th, td {
+#datos table, #datos th,#datos td {
     border: 1px solid white;
     border-collapse: collapse;
     padding: 20px;
 }
 
-#datos table{
+#datos  table{
     color: white;
     width: 80%;
     margin: auto;
@@ -226,6 +226,24 @@ header nav ul li:first-child{
     color: white;
 }
 
+.ui-autocomplete{
+    background-color: white;
+    width: 200px;
+    text-align: left;
+}
+
+.ui-autocomplete li{
+    cursor: pointer;
+}
+
+.ui-autocomplete li:hover{
+    background-color: lightskyblue;
+}
+
+.ui-checkboxradio, .ui-checkboxradio-label{
+    cursor: pointer;
+}
+
 /*ELIMINAR PELICULA*/
 #eliminar p{
     color:white
@@ -262,7 +280,7 @@ header nav ul li:first-child{
     margin: 5px;
 }
 
-.ui-datepicker td, th{
+.ui-datepicker td,.ui-datepicker th{
     background-color: white;
     border: 0;
     padding: 10px;
@@ -274,6 +292,35 @@ header nav ul li:first-child{
     color: black;
 }
 
+
+.ui-widget-header,.ui-state-default, ui-button {
+    background:#ff3359;
+    border: 1px solid #ff3359;
+    color: black;
+    font-weight: bold;
+ }
+
+.ui-dialog{
+    background-color: white;
+    top:-800px !important;
+    width: 400px !important;
+}
+
+#dialog p{
+    padding: 50px;
+}
+.ui-dialog-titlebar{
+    padding: 20px;
+}
+
+.ui-button{
+    background-color: transparent;
+    border:0;
+    float: right;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1.5em;
+}
 /*FOOTER*/
 footer{
     min-height: 40px;

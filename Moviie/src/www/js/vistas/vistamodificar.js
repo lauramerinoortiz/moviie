@@ -17,26 +17,31 @@ export class VistaModificar extends Vista {
           this.controlador = controlador
           this.div=$('#modificar')
 
-          this.nombre=$('#nombreEditar')
+          this.nombre=$('#nombreEditar').autocomplete({
+               source: [ "Titanic", "Harry Potter", "Mamma Mia", "Shrek", "Friends", "The Walking Dead", "Dune", "Avatar", "Simpsons", "Avengers", "Spiderman" ],
+               
+          })
           this.descripcion=$('#descripcionEditar')
           this.fecha=$('#fechaEditar').datepicker( {
                dateFormat: "dd/mm/yy",
                changeMonth: true,
-               changeYear: true
+               changeYear: true,
+               monthNamesShort: ['Enero','Febrero','Marzo','Abril','Mayo','Junio',
+               'Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'],
              })
           this.duracion=$('#duracionEditar')
           this.imagen=$('#imagenEditar')
 
-          this.netflix=$('#netflixEditar')
+          this.netflix=$('#netflixEditar').checkboxradio()
           this.netflix.click(this.anadirPlataforma.bind(this,'Netflix'))
 
-          this.hbo=$('#hboEditar')
+          this.hbo=$('#hboEditar').checkboxradio()
           this.hbo.click(this.anadirPlataforma.bind(this, 'Hbo'))
 
-          this.disney=$('#disneyEditar')
+          this.disney=$('#disneyEditar').checkboxradio()
           this.disney.click(this.anadirPlataforma.bind(this, 'Disney'))
 
-          this.amazon=$('#amazonEditar')
+          this.amazon=$('#amazonEditar').checkboxradio()
           this.amazon.click(this.anadirPlataforma.bind(this,'Amazon'))
 
           this.cancelar=this.div.find('button')[0]

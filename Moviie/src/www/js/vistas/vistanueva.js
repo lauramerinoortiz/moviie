@@ -17,12 +17,17 @@ export class VistaNueva extends Vista {
           this.controlador = controlador
           this.div=$('#nueva')
 
-          this.nombre=$('#nombre')
+          this.nombre=$('#nombre').autocomplete({
+               source: [ "Titanic", "Harry Potter", "Mamma Mia", "Shrek", "Friends", "The Walking Dead", "Dune", "Avatar", "Simpsons", "Avengers", "Spiderman" ],
+               
+          })
           this.descripcion=$('#descripcion')
           this.fecha=$('#fecha').datepicker( {
                dateFormat: "dd/mm/yy",
                changeYear: true,
-               changeMonth: true
+               changeMonth: true,
+               monthNamesShort: ['Enero','Febrero','Marzo','Abril','Mayo','Junio',
+               'Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'],
              })
           this.duracion=$('#duracion')
           this.imagen=$('#imagen')
@@ -34,16 +39,16 @@ export class VistaNueva extends Vista {
           this.aceptar=this.div.find('button').eq(1)
           this.aceptar.click(this.pulsarAceptar.bind(this))
 
-          this.netflix=$('#netflix')
+          this.netflix=$('#netflix').checkboxradio()
           this.netflix.click(this.anadirPlataforma.bind(this,'Netflix'))
 
-          this.hbo=$('#hbo')
+          this.hbo=$('#hbo').checkboxradio()
           this.hbo.click(this.anadirPlataforma.bind(this, 'Hbo'))
 
-          this.disney=$('#disney')
+          this.disney=$('#disney').checkboxradio()
           this.disney.click(this.anadirPlataforma.bind(this, 'Disney'))
 
-          this.amazon=$('#amazon')
+          this.amazon=$('#amazon').checkboxradio()
           this.amazon.click(this.anadirPlataforma.bind(this,'Amazon'))
 
           this.plataformas=new Set()

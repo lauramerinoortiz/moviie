@@ -21,6 +21,10 @@ export class VistaNav{
 		this.liNuevo.click(this.pulsarNuevo.bind(this))
 		this.liLogo.click(this.pulsarListado.bind(this))
 		this.liBuscar.click(this.pulsarBuscar.bind(this))
+
+		$("#dialog").dialog({
+			closeText: "X"
+	   })
 	}
 
 	/**

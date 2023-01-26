@@ -17,6 +17,7 @@ export class VistaListado extends Vista {
 
           this.listado=$('#listado')
           this.peliculas
+          
 	}
 
 
