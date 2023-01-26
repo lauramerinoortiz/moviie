@@ -313,7 +313,7 @@ header nav ul li:first-child{
     padding: 20px;
 }
 
-.ui-button{
+.ui-dialog .ui-button{
     background-color: transparent;
     border:0;
     float: right;
