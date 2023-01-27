@@ -49,7 +49,7 @@ export class VistaModificar extends Vista {
           this.amazon.click(this.anadirPlataforma.bind(this,'Amazon'))
 
           this.cancelar=this.div.find('button')[0]
-          this.cancelar.onclick=this.pulsarCancelar.bind(this)
+          this.cancelar.click(this.pulsarCancelar.bind(this))
 
           this.plataformas=new Set()  //Set para guardar los datos introducidos
 	}
